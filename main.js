@@ -1,8 +1,8 @@
 //                                              OKTEN-HCAW-3-JS
-//===============================================================================================================
+//======================================================================================================================
 //                                                Class Work
 //                                              OKTEN-CW-3-JS
-//===============================================================================================================
+//======================================================================================================================
 // - створити функцію яка приймає масив та виводить його
 let array = [1, 3, 4, true];
 function fArray(array) {
@@ -133,22 +133,108 @@ function getValueArr(arr) {
 getValueArr(arrObj2);
 console.log('Value of Obj ', value); // --> [ Dima, 13, Camry ]
 
-//===============================================================================================================
+//======================================================================================================================
 //                                                Home Work
 //                                              OKTEN-HW-3-JS
-//===============================================================================================================
+//======================================================================================================================
 // - створити функцію яка обчислює та повертає площу прямокутника висотою
+function countSquare(h) {
+    let b = 10;
+    return h*b;
+};
+let square = countSquare(5);
+console.log('Square = ', square);
+
 // - створити функцію яка обчислює та повертає площу кола
-// - створити функцію яка обчислює та повертає площу циліндру
+function countSquareCircle (r) {
+    return Math.round(Math.PI * Math.pow(r, 2));
+};
+let squareCircle = countSquareCircle(1);
+console.log('Circle square = ', squareCircle);
+
+// - створити функцію яка обчислює та повертає об'єм циліндру
+function countValueCilindr(r, h) {
+    return Math.round(Math.PI*Math.pow(r,2)*h);
+};
+let valueCilindr = countValueCilindr(2,5);
+console.log('Value of cilindr = ', valueCilindr)
+
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
+let numMax;
+function numbers() {
+    let numMin = arguments[0];
+    numMax = arguments[0];
+    for (let i = 0; i < arguments.length; i++) {
+        let argument = arguments[i];
+        if (argument < numMin ) {
+            numMin = argument;
+        };
+        if (argument > numMax) {
+            numMax = argument;
+        };
+    };
+    return numMin;
+};
+let min = numbers(2, 4, 5, 10, 33);
+console.log('Min = ', min);
+console.log('Max = ', numMax);
+
 // - створити функцію яка  створює блок з текстом. Текст задати через аргумент
+let str = 'Ukraine Army Is The Best!';
+function createBlock(arg) {
+    let div = document.createElement('div');
+    div.innerText = arg;
+    document.body.append(div);
+};
+createBlock(str);
+
 // - створити функцію яка  створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
-// - створити функцію яка  створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
+let strLi1 = 'Ukraine!!!';
+let ul = document.createElement('ul');
+document.body.append(ul);
+function createUlLi1(arg) {
+        let li = document.createElement('li');
+        li.innerText = arg;
+        ul.append(li);
+};
+createUlLi1(strLi1);
+createUlLi1(strLi1);
+createUlLi1(strLi1);
+
+// - створити функцію яка  створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий.
+// Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
+let strLi = 'Ukraine Winner!!!';
+function createUlLi(arg) {
+    let ul = document.createElement('ul');
+    document.body.append(ul);
+    for (let i = 0; i < 3; i++) {
+        let li = document.createElement('li');
+        li.innerText = arg;
+        ul.append(li);
+    };
+};
+createUlLi(strLi);
+
 // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
-//===============================================================================================================
+let arrElem = [true, 5, 2, 'false', 35];
+function bildUl(arr) {
+    let ol = document.createElement('ol');
+    ol.style.marginLeft = '20px';
+    ol.style.marginTop = '20px';
+    document.body.append(ol);
+    for (let i = 0; i < arr.length; i++) {
+        let arrElement = arr[i];
+        let li = document.createElement('li');
+        li.innerText = arrElement;
+        ol.append(li);
+    };
+};
+bildUl(arrElem);
+
+//======================================================================================================================
 //                                              Additional Work
 //                                              OKTEN-AW-3-JS
-//===============================================================================================================
+//======================================================================================================================
 // - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
 //     EXAMPLE:
 // [1,2,3,4]
