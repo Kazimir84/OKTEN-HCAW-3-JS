@@ -238,53 +238,164 @@ bildUl(arrElem);
 // - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
 //     EXAMPLE:
 // [1,2,3,4]
-//     [2,3,4,5]
+// [2,3,4,5]
 // результат
-//     [3,5,7,9]
-//
-//
-//
-//
+// [3,5,7,9]
+let arrAW1 = [1,2,3,4];
+let arrAW2 = [2,3,4,5];
+let arrAWRes = [];
+
+function sumIndex() {
+    for (let i = 0; i < arrAW1.length; i++) {
+            arrAWRes.push(arrAW1[i] + arrAW2[i]);
+    };
+};
+sumIndex(arrAW1, arrAW2);
+console.log('Sum of value index array = ', arrAWRes);
+
 // - Дан масив ['a', 'b', 'c']. Додайте йому в кінець елементи 1, 2, 3 за допомогою циклу.
+let arrABC = ['a', 'b', 'c'];
+for (let i = 1; i <= 3; i++) {
+    arrABC.push(i);
+}
+console.log('ABC ', arrABC);
+
 // - Дан масив [1, 2, 3]. Зробіть з нього новий масив [3, 2, 1].
+let arr123 = [1, 2, 3].reverse();
+console.log(arr123);
+
 // - Дан масив [1, 2, 3]. Додайте йому в кінець елементи 4, 5, 6.
+arr123456 = [1, 2, 3];
+for (let i = 4; i <= 6; i++) {
+    arr123456.push(i);
+};
+console.log('Arr', arr123456);
+
 // - Дан масив [1, 2, 3]. Додайте йому в початок елементи 4, 5, 6.
-//
-//
+arr456123 = [1, 2, 3];
+for (let i = 4; i <= 6; i++) {
+    arr456123.unshift(i);
+}
+console.log('Arr2', arr456123);
+
 // - Дан масив [1, 2, 3, 4, 5]. Перетворіть масив в [4, 5].
+let longArr = [1, 2, 3, 4, 5];
+longArr.splice(0,3);
+console.log('longArr', longArr);
+
 // - Дан масив [1, 2, 3, 4, 5]. Перетворіть масив в [1,2].
+let longArr2 = [1, 2, 3, 4, 5].splice(0,2);
+console.log('longArr2', longArr2);
+
 // - Дан масив [1, 2, 3, 4, 5]. Зробіть з нього масив [1, 2, 3, 'a', 'b', 'c'].
-//
-//
+let longArr3 = [1, 2, 3, 4, 5];
+        longArr3.splice(3,2, 'a', 'b', 'c');
+console.log('longArr3', longArr3);
+
 // - Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.
-//
+let arrTenNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+for (let i = 0; i < arrTenNum.length; i++) {
+    let element = arrTenNum[i];
+    if (element%2 === 0) {
+        console.log('Парные значения масива ', element);
+    };
+};
+
 // - Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу скопіювати значення одного масиву в інший.
-//
+let arrTenNum2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let arrTenNum2New = [];
+arrTenNum2New = [...arrTenNum2];
+console.log('Copy ', arrTenNum2New);
+
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
+let arrWord = [ 'a', 'b', 'c'];
+let strWord = '';
+for (let i = 0; i < arrWord.length; i++) {
+    let element = arrWord[i];
+    strWord += element;
+};
+console.log('Word ', strWord);
+
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
+let arrWord2 = [ 'a', 'b', 'c'];
+let strWord2 = '';
+let i = 0;
+while (i < arrWord2.length) {
+    strWord2 += arrWord2[i];
+    i++;
+}
+console.log('Word2 ', strWord2);
+
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
-//
-//
-//
-// -   функція Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
+let arrWord3 = [ 'a', 'b', 'c'];
+let strWord3 = '';
+for (let string of arrWord3) {
+    strWord3 += string;
+};
+console.log('Word3 ', strWord3);
+
+// - функція Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
 //   EXAMPLE:
 //   foo([9,8,0,4], 0) // ==> [ 8, 9, 0, 4 ]
 //   foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
 //   foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
-//
+function foo(arr, num) {
+    for (let arrElement of arr) {
+        let a = arr[num];
+        arr[num] = arr[num + 1];
+        arr[num + 1] = a;
+        return arr;
+    };
+};
+console.log('Foo', foo([9,8,0,4], 0)); // ==> [ 8, 9, 0, 4 ]
+console.log('Foo', foo([9,8,0,4], 1)); // ==> [ 9 ,0, 8, 4 ]
+console.log('Foo', foo([9,8,0,4], 2)); // ==> [ 9, 8, 4, 0 ]
+
 // - Дано список імен.
-// let n1 = '    Harry       Potter      '
-// let n2 = '    Ron       Whisley      '
-// let n3 = '    Hermione       Granger      '
+let n1 = '    Harry       Potter      '
+let n2 = '    Ron       Whisley      '
+let n3 = '    Hermione       Granger      '
 // Написати функцію, яка приймає будь яке не валідне імя, та нормалізує його в наступнйи вигляд
 // let n1 = 'Harry Potter'
 // let n2 = 'Ron Whisley'
 // let n3 = 'Hermione Granger'
-//
-// - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
+console.log('N1 basic = ', n1);
+console.log('N2 basic = ', n2);
+console.log('N3 basic = ', n3);
+function removeSpase(str) {
+    let string = str.trim().split('  ').join('');
+    return string;
+};
+n1 = removeSpase(n1);
+console.log('N1 Change = ', n1);
+n2 = removeSpase(n2);
+console.log('N2 Change = ', n2);
+n3 = removeSpase(n3);
+console.log('N3 Change = ', n3);
+
+// - Сворити функцію яка буде переносити елементи зі значенням 0 у кінець масиву.
+//   Зберігаючи при цьому порядок не нульових значень.
 // Двожина масиву від 2 до 100
 // EXAMPLE:
 // [1,0,6,0,3] => [1,6,3,0,0]
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
+
+let arr88 = [];
+for (let i = 1; i <= 100; i++) {
+    arr88.push(Math.round(Math.random()*100));
+};
+console.log('Basic Array ', arr88);
+function replaceZeroElement(arr) {
+    for (let j = 0; j < arr.length; j++) {
+        let element = arr[j];
+        if (element === 0 || element%10 === 0) {
+            arr.splice(j, 1);
+            arr.push(element);
+        };
+    };
+    console.log('Replaced Zero Element in Array ', arr);
+};
+replaceZeroElement(arr88);
+
 // ==============================================================================================================
